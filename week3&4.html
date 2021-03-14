@@ -94,9 +94,28 @@ body {
 
  <h1 style="text-align: center; font-style: italic; color: firebrick;">Week3</h1>
  
- 
-    <p></p>
-     <br><br> 
+    <p>I countinue working on AWS in this week, 
+      there are three way to accessing AWS service 1. AWS Management Console: it provides a graphical interface for a number of the products and services offered by AWS. 
+      2. AWS Command Line Interface (AWS CLI): it provides a utilities that can run from a command program in MacOS, Linux, or Windows.
+      3. software development kits (SDKs):  AWS provided packages that enable access to AWS services using some programming languages, like Java, Python, .NET or Roby
+      I created IAM (Identity and Access Management)user,
+      ?????IAM is a service that helps a user securely control access to AWS resources for users and for programs.????
+      ????A user uses IAM to control who can use the AWS resources (authentication), what resources they can use and in what ways (authorization?????
+       In services I chose IAM and then I selected the user and then add user 
+      I chose the admin as username and I created the group named admin_Group. Then I used policies to gave the permission to user I 
+      selected "AdministratorAccess" by giving AdministratorAccess my user which is admin has full access and can delegate permission to every service in AWS. 
+      This policy grants all actions for all AWS services and for all resources in the account. I assigned the a user name and password 
+      for my user to provide AWS Management Console access. 
+      Then I tried to add another user named Nasrin and add that user to the group named admin_Group. </p>
+      I tried to create my first instance, first I lunch the instance, then I selected "Amazon Linux 2 AM1"  for Amazon Machine Image (AMI),
+     <p>I selected "t2 micro " for type of the instance and then I created the my private key and finally I lunched my first instance and named "First instance". To connect using a browser,
+     on Amazon EC2 console, in the navigation pane I chose instance and then selected my instance which is First instance and the chose select button,
+     then I selected EC2 instance Connect and then connect, it successfully connected to my instance. </p>
+     I Createed my second instance and chose the "Microsoft Windows Servers 2019" AMI, and then t2 micro as a instance type,then I lunched my second instans.
+     I Named it "MySecondInstance" i selected Connect button then i used RDP client I create the password and then connected to my second instance.
+     </p>
+
+     <br> 
      
      <div id="imagesMain">
 
