@@ -106,28 +106,58 @@ body {
       selected "AdministratorAccess" by giving AdministratorAccess my user which is admin has full access and can delegate permission to every service in AWS. 
       This policy grants all actions for all AWS services and for all resources in the account. I assigned the a user name and password 
       for my user to provide AWS Management Console access. 
-      Then I tried to add another user named Nasrin and add that user to the group named admin_Group. </p>
-      I tried to create my first instance, first I lunch the instance, then I selected "Amazon Linux 2 AM1"  for Amazon Machine Image (AMI),
-     <p>I selected "t2 micro " for type of the instance and then I created the my private key and finally I lunched my first instance and named "First instance". To connect using a browser,
-     on Amazon EC2 console, in the navigation pane I chose instance and then selected my instance which is First instance and the chose select button,
-     then I selected EC2 instance Connect and then connect, it successfully connected to my instance. </p>
-     I Createed my second instance and chose the "Microsoft Windows Servers 2019" AMI, and then t2 micro as a instance type,then I lunched my second instans.
-     I Named it "MySecondInstance" i selected Connect button then i used RDP client I create the password and then connected to my second instance.
-     </p>
+      Then I tried to add another user named Nasrin and add that user to the group named admin_Group. Also I changed the region by select the n.viginia button and then 
+      I chose the US East(N.Virginia) us-east-1, I picked that regin because I think that is closest to most of users and supports the AWS services. </p>
+    <p>I tried to create my first instance which was named webserver1, first I lunch the instance, then I selected UbuntuServer 18.04 image and in instance type screen 
+      we should select what kind of hardware we want to allocated to our virtual machine, I selected t2 micro then I clicked on the Review and lunch button,
+       to connect the instance I created the key pair and nemed "awsdemo" and clicked on download key pair and 
+      then lunch instance then my instance was created. then I opended the terminal on my laptop then I changed my directory to see my key pair file, 
+      I used the cat to see inside the file, inside my file was encoded private key, and the associated public key was already installed in my instance.
+      To set the permission on my awsfirstkey.pem in my terminal I typed "chmod 400 awsdemo.pem"this set the permission on my private key to 
+      only be readable by my local user. then I copied example ssh command which is "ssh -i " awsdemo.pem" ubuntu@ec2-18-207-142-74.compute-1.amazonaws.com" 
+      then I connected to my EC2 instance. I lunch another instance and selected UbuntuServer 18.04 image, in terminal,
+      I install the apache2 to my instance by running "sudo apt-get install apache2" command now Apache2 is running in my new instance. </p>
+   <p>I checked for security group, my instance used security group called Wizard-2, this security group is created by EC2 launch wizaed. 
+      Also for inbound rules, my security group allows 0.0.0.0/0 (all ip address), will accept incoming traffic over port 22,which is the ssh port from any ip address on the internet.
+      I tried to add another rule which was HTTP traffic(port 80),to allow port 80 traffic, from anywhere on the internet. I selected inbound rule,
+       sthen add rule button, then I selected HTTP added HTTP to the inbound rule,  I copied the public ipv4 DNS and paste it to new browser 
+      and after that, I could see the default Apache screen. </p>
+
+    
 
      <br> 
      
      <div id="imagesMain">
-
+      <img src="img/img/"  class="zoomA" alt="" >
       
 </div>
    
    <br><br>
 
    <h1 style="text-align: center; font-style: italic; color: firebrick;">Week4</h1>
-   <h2 style="text-align:center;">Personal achievements</h2>
+  
 
-   <p>  </p>
+   <p>?????In this week I started to learning about Autoscalling. I learned an auto-scalling policy can tell AWS that when an event occures, such as 
+     our instance CPU usage goes above 80% for five minutes, to stretch our one server into two, and then we can tell it to shrink back down again
+     to one server when things have calmed down again.???? </p>
+     <p>I tried to clone my existing server which is webserver1. First I selected my running instance then I clicked on status checks, 
+       then I selected actions and clicked on image and templates then create image, for emage name I typed awsdemo1 then I clicked to create image button,
+      then I clicked on AMIs, then I selected my new AMI image which is awsdemo1 and selected launch button, I launched a new server based on my server image.
+       I selected t2micro then configure instance details button, for availability zone i selected us-east-1b, and for security group 
+       I selected existing security group and select launch-wizard-2, and I chose existing key which is awsdemo and I launch my new instance called weserver2.
+      I copied public ipv4 DNS of webserver2 to new browser "https://ec2-52-90-191-66.compute-1.amazonaws.com" and default Apache2 apear again because 
+      this server is a clone of the server I setted up. </p>
+      <p>I also leant about Elastic Block Store(EBS), in AWS console under elastic block store I selected snapshot it crated an EBC snapshot of my
+        servers main drive, snapshot in elastic block server is different than the AMI snapshot,EBC volum is just snapshot of it's hard drive, however,
+         AMI includes everything we need to relaunch the instance.
+   </p>
+   <p>I learnt I can create additional EBC volumes and mount it to my running instance, this like adding an additional hard drive to my computer, and also I could detach this drive and move it 
+      to another computer. In addition, I learnt about EFS which is abbreviation of Elastic File System, this servis allows us to mount a shared drive across two ore more EC2
+      instances, to share commonly-used data by my application across all of my scalable front end servirs. my EFS drive will include anything that my instance
+       need to share, like user uploaded data.</p>
+
+       <p>Anothe AWS service I learnt, was Simple Storage Service(S3) </p>
+
    
    <a href="https://hub.docker.com">dockerHub</a> 
      </p>
